@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        window = UIWindow()
+        window?.makeKeyAndVisible()
+        window?.rootViewController = ContainerController()
+        let realm = try! Realm()
+        
+        if (realm.objects(Category.self).count == 0 ) {
+            
+            let exampleCategory = Category()
+            exampleCategory.name = "Holiday"
+            exampleCategory.iconName = "calendar"
+            
+            let exampleCategory2 = Category()
+            exampleCategory2.name = "Event"
+            exampleCategory2.iconName = "calendar"
+            
+            let exampleDayiato = Dayiato()
+            exampleDayiato.title = "Christmas"
+            
+            var dateComponents = DateComponents()
+            if ( Calendar.current.component(.year, from: Date()) == 12) {
+                dateComponents.year = Calendar.current.component(.year, from: Date() + 1)
+            } else {
+                dateComponents.year = Calendar.current.component(.year, from: Date())
+            }
+            
+            dateComponents.month = 12
+            dateComponents.day = 25
+            
+            exampleDayiato.date = NSCalendar.current.date(from: dateComponents)
+            exampleCategory.dayiatos.append(exampleDayiato)
+            
+            do {
+                try realm.write {
+                    realm.add(exampleCategory)
+                    realm.add(exampleCategory2)
+                    realm.add(exampleDayiato)
+                }
+            } catch {
+                print("Error saving context, \(error)")
+            }
+        }
+       
+        
+       
+       
+    
+//        try! realm.write {
+//            realm.deleteAll()
+//        }
+
         return true
     }
 

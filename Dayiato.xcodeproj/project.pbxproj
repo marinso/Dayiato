@@ -3,25 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CC41C3F126C8568BB8DEA79 /* Pods_Dayiato.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1D162A450C039830CA893E /* Pods_Dayiato.framework */; };
+		83472A362316917000A542AA /* AddDayiatoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83472A352316917000A542AA /* AddDayiatoController.swift */; };
+		83472A3823169AA600A542AA /* AddDayiatoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83472A3723169AA600A542AA /* AddDayiatoCell.swift */; };
+		83472A3A2317E0D600A542AA /* AddDayiatoOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83472A392317E0D600A542AA /* AddDayiatoOption.swift */; };
+		836DF0A22315779C00B21FFB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF0A12315779C00B21FFB /* Category.swift */; };
+		836DF0A4231577B000B21FFB /* Dayiato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF0A3231577B000B21FFB /* Dayiato.swift */; };
 		836F39F223073DD7008203D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F39F123073DD7008203D5 /* AppDelegate.swift */; };
-		836F39F423073DD7008203D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F39F323073DD7008203D5 /* ViewController.swift */; };
-		836F39F723073DD7008203D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836F39F523073DD7008203D5 /* Main.storyboard */; };
 		836F39F923073DD8008203D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836F39F823073DD8008203D5 /* Assets.xcassets */; };
-		836F39FC23073DD8008203D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836F39FA23073DD8008203D5 /* LaunchScreen.storyboard */; };
+		836F3A08230740A9008203D5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F3A07230740A9008203D5 /* ContainerController.swift */; };
+		836F3A0A230740B6008203D5 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F3A09230740B6008203D5 /* HomeController.swift */; };
+		836F3A0C230740CD008203D5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F3A0B230740CD008203D5 /* MenuController.swift */; };
+		8377A54E231C331A00C08F99 /* SelectCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377A54D231C331A00C08F99 /* SelectCategoryController.swift */; };
+		8377A550231C486F00C08F99 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377A54F231C486F00C08F99 /* CategoryCell.swift */; };
+		83A6A63B23074B19007D83C1 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6A63A23074B19007D83C1 /* protocols.swift */; };
+		83A6A63D230751F1007D83C1 /* MenuOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6A63C230751F1007D83C1 /* MenuOptionCell.swift */; };
+		83E8A827230C14B2007FEE41 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8A826230C14B1007FEE41 /* MenuOption.swift */; };
+		83E8A829230C35B7007FEE41 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8A828230C35B7007FEE41 /* SettingsController.swift */; };
+		83E8A82B230C3C3F007FEE41 /* DayiatoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8A82A230C3C3F007FEE41 /* DayiatoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E1D162A450C039830CA893E /* Pods_Dayiato.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dayiato.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83472A352316917000A542AA /* AddDayiatoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDayiatoController.swift; sourceTree = "<group>"; };
+		83472A3723169AA600A542AA /* AddDayiatoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDayiatoCell.swift; sourceTree = "<group>"; };
+		83472A392317E0D600A542AA /* AddDayiatoOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDayiatoOption.swift; sourceTree = "<group>"; };
+		836DF0A12315779C00B21FFB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		836DF0A3231577B000B21FFB /* Dayiato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dayiato.swift; sourceTree = "<group>"; };
 		836F39EE23073DD7008203D5 /* Dayiato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dayiato.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		836F39F123073DD7008203D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		836F39F323073DD7008203D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		836F39F623073DD7008203D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		836F39F823073DD8008203D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		836F39FB23073DD8008203D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		836F39FD23073DD8008203D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		836F3A07230740A9008203D5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		836F3A09230740B6008203D5 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		836F3A0B230740CD008203D5 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		8377A54D231C331A00C08F99 /* SelectCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryController.swift; sourceTree = "<group>"; };
+		8377A54F231C486F00C08F99 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		83A6A63A23074B19007D83C1 /* protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocols.swift; sourceTree = "<group>"; };
+		83A6A63C230751F1007D83C1 /* MenuOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionCell.swift; sourceTree = "<group>"; };
+		83E8A826230C14B1007FEE41 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		83E8A828230C35B7007FEE41 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		83E8A82A230C3C3F007FEE41 /* DayiatoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayiatoCell.swift; sourceTree = "<group>"; };
+		E718402A366022512CC1BEFF /* Pods-Dayiato.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dayiato.release.xcconfig"; path = "Target Support Files/Pods-Dayiato/Pods-Dayiato.release.xcconfig"; sourceTree = "<group>"; };
+		FF751E1977CCBF5FC4490E00 /* Pods-Dayiato.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dayiato.debug.xcconfig"; path = "Target Support Files/Pods-Dayiato/Pods-Dayiato.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC41C3F126C8568BB8DEA79 /* Pods_Dayiato.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +69,8 @@
 			children = (
 				836F39F023073DD7008203D5 /* Dayiato */,
 				836F39EF23073DD7008203D5 /* Products */,
+				F62F0EB77997D09F7FDB47C1 /* Pods */,
+				9B908665B0815B434DADDE5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +85,75 @@
 		836F39F023073DD7008203D5 /* Dayiato */ = {
 			isa = PBXGroup;
 			children = (
+				836F3A0623073E12008203D5 /* Utils */,
+				836F3A0523073E0A008203D5 /* Controller */,
+				836F3A0423073E06008203D5 /* View */,
+				836F3A0323073DFE008203D5 /* Model */,
 				836F39F123073DD7008203D5 /* AppDelegate.swift */,
-				836F39F323073DD7008203D5 /* ViewController.swift */,
-				836F39F523073DD7008203D5 /* Main.storyboard */,
 				836F39F823073DD8008203D5 /* Assets.xcassets */,
-				836F39FA23073DD8008203D5 /* LaunchScreen.storyboard */,
 				836F39FD23073DD8008203D5 /* Info.plist */,
 			);
 			path = Dayiato;
+			sourceTree = "<group>";
+		};
+		836F3A0323073DFE008203D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83E8A826230C14B1007FEE41 /* MenuOption.swift */,
+				83472A392317E0D600A542AA /* AddDayiatoOption.swift */,
+				836DF0A12315779C00B21FFB /* Category.swift */,
+				836DF0A3231577B000B21FFB /* Dayiato.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		836F3A0423073E06008203D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83A6A63C230751F1007D83C1 /* MenuOptionCell.swift */,
+				83E8A82A230C3C3F007FEE41 /* DayiatoCell.swift */,
+				83472A3723169AA600A542AA /* AddDayiatoCell.swift */,
+				8377A54F231C486F00C08F99 /* CategoryCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		836F3A0523073E0A008203D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				836F3A07230740A9008203D5 /* ContainerController.swift */,
+				836F3A09230740B6008203D5 /* HomeController.swift */,
+				83472A352316917000A542AA /* AddDayiatoController.swift */,
+				836F3A0B230740CD008203D5 /* MenuController.swift */,
+				83E8A828230C35B7007FEE41 /* SettingsController.swift */,
+				8377A54D231C331A00C08F99 /* SelectCategoryController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		836F3A0623073E12008203D5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				83A6A63A23074B19007D83C1 /* protocols.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B908665B0815B434DADDE5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E1D162A450C039830CA893E /* Pods_Dayiato.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F62F0EB77997D09F7FDB47C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF751E1977CCBF5FC4490E00 /* Pods-Dayiato.debug.xcconfig */,
+				E718402A366022512CC1BEFF /* Pods-Dayiato.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 836F3A0023073DD8008203D5 /* Build configuration list for PBXNativeTarget "Dayiato" */;
 			buildPhases = (
+				3A784871B8F85E8CCADF0F85 /* [CP] Check Pods Manifest.lock */,
 				836F39EA23073DD7008203D5 /* Sources */,
 				836F39EB23073DD7008203D5 /* Frameworks */,
 				836F39EC23073DD7008203D5 /* Resources */,
+				ADEA843DBBC6CB7E8CB01464 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,44 +216,79 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836F39FC23073DD8008203D5 /* LaunchScreen.storyboard in Resources */,
 				836F39F923073DD8008203D5 /* Assets.xcassets in Resources */,
-				836F39F723073DD7008203D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A784871B8F85E8CCADF0F85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dayiato-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADEA843DBBC6CB7E8CB01464 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dayiato/Pods-Dayiato-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dayiato/Pods-Dayiato-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dayiato/Pods-Dayiato-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		836F39EA23073DD7008203D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836F39F423073DD7008203D5 /* ViewController.swift in Sources */,
+				83E8A829230C35B7007FEE41 /* SettingsController.swift in Sources */,
+				83472A3823169AA600A542AA /* AddDayiatoCell.swift in Sources */,
+				83472A3A2317E0D600A542AA /* AddDayiatoOption.swift in Sources */,
+				83472A362316917000A542AA /* AddDayiatoController.swift in Sources */,
+				836DF0A22315779C00B21FFB /* Category.swift in Sources */,
+				836DF0A4231577B000B21FFB /* Dayiato.swift in Sources */,
+				836F3A0C230740CD008203D5 /* MenuController.swift in Sources */,
+				83E8A82B230C3C3F007FEE41 /* DayiatoCell.swift in Sources */,
+				836F3A0A230740B6008203D5 /* HomeController.swift in Sources */,
+				8377A54E231C331A00C08F99 /* SelectCategoryController.swift in Sources */,
+				83E8A827230C14B2007FEE41 /* MenuOption.swift in Sources */,
+				8377A550231C486F00C08F99 /* CategoryCell.swift in Sources */,
 				836F39F223073DD7008203D5 /* AppDelegate.swift in Sources */,
+				83A6A63B23074B19007D83C1 /* protocols.swift in Sources */,
+				836F3A08230740A9008203D5 /* ContainerController.swift in Sources */,
+				83A6A63D230751F1007D83C1 /* MenuOptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		836F39F523073DD7008203D5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				836F39F623073DD7008203D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		836F39FA23073DD8008203D5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				836F39FB23073DD8008203D5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		836F39FE23073DD8008203D5 /* Debug */ = {
@@ -280,6 +409,7 @@
 		};
 		836F3A0123073DD8008203D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF751E1977CCBF5FC4490E00 /* Pods-Dayiato.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +428,7 @@
 		};
 		836F3A0223073DD8008203D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E718402A366022512CC1BEFF /* Pods-Dayiato.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
