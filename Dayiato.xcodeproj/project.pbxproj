@@ -18,6 +18,9 @@
 		836F3A08230740A9008203D5 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F3A07230740A9008203D5 /* ContainerController.swift */; };
 		836F3A0A230740B6008203D5 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F3A09230740B6008203D5 /* HomeController.swift */; };
 		836F3A0C230740CD008203D5 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836F3A0B230740CD008203D5 /* MenuController.swift */; };
+		8375D2B9231D7835005B29E0 /* AddCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8375D2B8231D7835005B29E0 /* AddCategoryController.swift */; };
+		8375D2BB23201449005B29E0 /* AddCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8375D2BA23201449005B29E0 /* AddCategoryCell.swift */; };
+		8375D2BD232015AD005B29E0 /* AddCategoryOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8375D2BC232015AD005B29E0 /* AddCategoryOption.swift */; };
 		8377A54E231C331A00C08F99 /* SelectCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377A54D231C331A00C08F99 /* SelectCategoryController.swift */; };
 		8377A550231C486F00C08F99 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377A54F231C486F00C08F99 /* CategoryCell.swift */; };
 		83A6A63B23074B19007D83C1 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6A63A23074B19007D83C1 /* protocols.swift */; };
@@ -41,6 +44,9 @@
 		836F3A07230740A9008203D5 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		836F3A09230740B6008203D5 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		836F3A0B230740CD008203D5 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		8375D2B8231D7835005B29E0 /* AddCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryController.swift; sourceTree = "<group>"; };
+		8375D2BA23201449005B29E0 /* AddCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCell.swift; sourceTree = "<group>"; };
+		8375D2BC232015AD005B29E0 /* AddCategoryOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryOption.swift; sourceTree = "<group>"; };
 		8377A54D231C331A00C08F99 /* SelectCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryController.swift; sourceTree = "<group>"; };
 		8377A54F231C486F00C08F99 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		83A6A63A23074B19007D83C1 /* protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocols.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			children = (
 				83E8A826230C14B1007FEE41 /* MenuOption.swift */,
 				83472A392317E0D600A542AA /* AddDayiatoOption.swift */,
+				8375D2BC232015AD005B29E0 /* AddCategoryOption.swift */,
 				836DF0A12315779C00B21FFB /* Category.swift */,
 				836DF0A3231577B000B21FFB /* Dayiato.swift */,
 			);
@@ -113,6 +120,7 @@
 				83A6A63C230751F1007D83C1 /* MenuOptionCell.swift */,
 				83E8A82A230C3C3F007FEE41 /* DayiatoCell.swift */,
 				83472A3723169AA600A542AA /* AddDayiatoCell.swift */,
+				8375D2BA23201449005B29E0 /* AddCategoryCell.swift */,
 				8377A54F231C486F00C08F99 /* CategoryCell.swift */,
 			);
 			path = View;
@@ -124,6 +132,7 @@
 				836F3A07230740A9008203D5 /* ContainerController.swift */,
 				836F3A09230740B6008203D5 /* HomeController.swift */,
 				83472A352316917000A542AA /* AddDayiatoController.swift */,
+				8375D2B8231D7835005B29E0 /* AddCategoryController.swift */,
 				836F3A0B230740CD008203D5 /* MenuController.swift */,
 				83E8A828230C35B7007FEE41 /* SettingsController.swift */,
 				8377A54D231C331A00C08F99 /* SelectCategoryController.swift */,
@@ -278,10 +287,13 @@
 				836F3A0C230740CD008203D5 /* MenuController.swift in Sources */,
 				83E8A82B230C3C3F007FEE41 /* DayiatoCell.swift in Sources */,
 				836F3A0A230740B6008203D5 /* HomeController.swift in Sources */,
+				8375D2BB23201449005B29E0 /* AddCategoryCell.swift in Sources */,
 				8377A54E231C331A00C08F99 /* SelectCategoryController.swift in Sources */,
 				83E8A827230C14B2007FEE41 /* MenuOption.swift in Sources */,
 				8377A550231C486F00C08F99 /* CategoryCell.swift in Sources */,
 				836F39F223073DD7008203D5 /* AppDelegate.swift in Sources */,
+				8375D2B9231D7835005B29E0 /* AddCategoryController.swift in Sources */,
+				8375D2BD232015AD005B29E0 /* AddCategoryOption.swift in Sources */,
 				83A6A63B23074B19007D83C1 /* protocols.swift in Sources */,
 				836F3A08230740A9008203D5 /* ContainerController.swift in Sources */,
 				83A6A63D230751F1007D83C1 /* MenuOptionCell.swift in Sources */,

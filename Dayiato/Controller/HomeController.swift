@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 private let reuseIdentifer = "DayiatoCell"
 
@@ -50,7 +51,7 @@ class HomeController: UIViewController, ReloadDataDelegate {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
         navigationItem.title = "Dayiato"
-        // withRenderingMode zapewniam nam, że kolor zawsze będzie biały
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddButton))

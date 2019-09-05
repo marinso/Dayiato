@@ -14,7 +14,7 @@ class Dayiato: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var date: Date?
     var parentCategory = LinkingObjects(fromType: Category.self , property: "dayiatos")
-    
+
     func counting() -> Int {
         let calendar = Calendar.current
         var components: DateComponents

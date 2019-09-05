@@ -11,6 +11,7 @@ import UIKit
 class DayiatoCell: UITableViewCell {
     
     // MARK: - Properties
+    
     let iconImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -51,8 +52,6 @@ class DayiatoCell: UITableViewCell {
         marker.text = "D"
         return marker
     }()
-    
-//    let DLabel
     
     // MARK: - Init
     

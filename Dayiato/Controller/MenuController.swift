@@ -13,6 +13,7 @@ private let reuseIdentifer = "MenuOptionCell"
 class MenuController: UIViewController {
 
     // MARK: - Properties
+    
     var tableView: UITableView!
     var delegate: HomeControllerDelegate?
     
@@ -47,6 +48,7 @@ class MenuController: UIViewController {
 }
 
 extension MenuController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
