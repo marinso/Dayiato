@@ -1,0 +1,6 @@
+framework module Pods_Dayiato {
+  umbrella header "Pods-Dayiato-umbrella.h"
+
+  export *
+  module * { export * }
+}

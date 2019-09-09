@@ -1,0 +1,30 @@
+PODS:
+  - DatePickerCell (1.0.9)
+  - Realm (3.17.0):
+    - Realm/Headers (= 3.17.0)
+  - Realm/Headers (3.17.0)
+  - RealmSwift (3.17.0):
+    - Realm (= 3.17.0)
+  - SwipeCellKit (2.6.0)
+
+DEPENDENCIES:
+  - DatePickerCell (~> 1.0)
+  - RealmSwift
+  - SwipeCellKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DatePickerCell
+    - Realm
+    - RealmSwift
+    - SwipeCellKit
+
+SPEC CHECKSUMS:
+  DatePickerCell: 021ea693283711cbea28b925537eac6a29c2e40b
+  Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
+  RealmSwift: fe733e459d60dc7b6971d4cbee2eb4854097d12c
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
+
+PODFILE CHECKSUM: 0d949822743248e3427bc9594d2d6e23354f199f
+
+COCOAPODS: 1.7.3
