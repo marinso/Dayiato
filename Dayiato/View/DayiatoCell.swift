@@ -23,7 +23,7 @@ class DayiatoCell: UITableViewCell {
     
     let descriptionLabel: UILabel = {
         let dl = UILabel()
-        dl.textColor = .white
+        dl.textColor = .black
         dl.font = UIFont.systemFont(ofSize: 18)
         dl.text = "Sample Text"
         return dl
@@ -39,7 +39,7 @@ class DayiatoCell: UITableViewCell {
     
     let amountOfDays: UILabel = {
         let days = UILabel()
-        days.textColor = .white
+        days.textColor = .black
         days.font = UIFont.systemFont(ofSize: 20)
         days.text = "233"
         return days
@@ -47,7 +47,7 @@ class DayiatoCell: UITableViewCell {
     
     let marker: UILabel = {
         let marker = UILabel()
-        marker.textColor = .white
+        marker.textColor = .black
         marker.font = UIFont.systemFont(ofSize: 16)
         marker.text = "D"
         return marker
@@ -58,15 +58,15 @@ class DayiatoCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = .lightGray
+        backgroundColor = UIColor(red: 190/255, green: 190/255, blue: 190/255, alpha: 1)
         selectionStyle = .none
         addSubview(iconImageView)
         
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         iconImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: 34).isActive = true
         
         addSubview(descriptionLabel)
         

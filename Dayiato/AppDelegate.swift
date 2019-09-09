@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -20,49 +21,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         window?.rootViewController = ContainerController()
+        
+        let config = Realm.Configuration(
+            // Set the new schema version. This must be greater than the previously used
+            // version (if you've never set a schema version before, the version is 0).
+            schemaVersion: 3,
+            
+            // Set the block which will be called automatically when opening a Realm with
+            // a schema version lower than the one set above
+            migrationBlock: { migration, oldSchemaVersion in
+                // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                if (oldSchemaVersion < 1) {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+        })
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+        
+        // Now that we've told Realm how to handle the schema change, opening the file
+        // will automatically perform the migration
         let realm = try! Realm()
         
-        if (realm.objects(Category.self).count == 0 ) {
-            
-            let exampleCategory = Category()
-            exampleCategory.name = "Holiday"
-            exampleCategory.iconName = "calendar"
-            
-            let exampleCategory2 = Category()
-            exampleCategory2.name = "Event"
-            exampleCategory2.iconName = "calendar"
-            
-            let exampleDayiato = Dayiato()
-            exampleDayiato.title = "Christmas"
-            
-            var dateComponents = DateComponents()
-            if ( Calendar.current.component(.year, from: Date()) == 12) {
-                dateComponents.year = Calendar.current.component(.year, from: Date() + 1)
-            } else {
-                dateComponents.year = Calendar.current.component(.year, from: Date())
-            }
-            
-            dateComponents.month = 12
-            dateComponents.day = 25
-            
-            exampleDayiato.date = NSCalendar.current.date(from: dateComponents)
-            exampleCategory.dayiatos.append(exampleDayiato)
-            
-            do {
-                try realm.write {
-                    realm.add(exampleCategory)
-                    realm.add(exampleCategory2)
-                    realm.add(exampleDayiato)
-                }
-            } catch {
-                print("Error saving context, \(error)")
-            }
-        }
-       
+//        let realm = try! Realm()
         
-       
-       
-    
+//        if (realm.objects(Category.self).count == 0 ) {
+//
+//            let exampleCategory = Category()
+//            exampleCategory.name = "Holiday"
+//            exampleCategory.iconName = "calendar"
+//
+//            let exampleCategory2 = Category()
+//            exampleCategory2.name = "Event"
+//            exampleCategory2.iconName = "calendar"
+//
+//            let exampleDayiato = Dayiato()
+//            exampleDayiato.title = "Christmas"
+//            exampleDayiato.setAsCover = true
+//
+//            var dateComponents = DateComponents()
+//            if ( Calendar.current.component(.year, from: Date()) == 12) {
+//                dateComponents.year = Calendar.current.component(.year, from: Date() + 1)
+//            } else {
+//                dateComponents.year = Calendar.current.component(.year, from: Date())
+//            }
+//
+//            dateComponents.month = 12
+//            dateComponents.day = 25
+//
+//            exampleDayiato.date = NSCalendar.current.date(from: dateComponents)
+//            exampleCategory.dayiatos.append(exampleDayiato)
+//
+//            do {
+//                try realm.write {
+//                    realm.add(exampleCategory)
+//                    realm.add(exampleCategory2)
+//                    realm.add(exampleDayiato)
+//                }
+//            } catch {
+//                print("Error saving context, \(error)")
+//            }
+//        }
+//
+//
 //        try! realm.write {
 //            realm.deleteAll()
 //        }

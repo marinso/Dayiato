@@ -19,7 +19,6 @@ class Dayiato: Object {
         let calendar = Calendar.current
         var components: DateComponents
 
-        // Replace the hour (time) of both dates with 00:00
         if let date = date {
             let dayiatoDay = calendar.startOfDay(for: date)
             let today = calendar.startOfDay(for: Date())
@@ -33,5 +32,24 @@ class Dayiato: Object {
             }
         }
         return -1
+    }
+    
+    func displayDate() -> String {
+        if let date = date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            return dateFormatter.string(from: date)
+        } else {
+            return "date is nil"
+        }
+    }
+    
+    func future() -> Bool {
+        if let date = date {
+            let result = date > Date() ? true : false
+            return result
+        }
+        return false
     }
 }

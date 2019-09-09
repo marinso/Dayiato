@@ -10,6 +10,7 @@ import UIKit
 
 protocol OptionInAddCategoryCell: CustomStringConvertible {
     var containsCategoryNameTextField: Bool { get }
+    var containsIconImageView: Bool { get }
 }
 
 enum AddCategoryOption: Int, CaseIterable, OptionInAddCategoryCell {
@@ -28,6 +29,13 @@ enum AddCategoryOption: Int, CaseIterable, OptionInAddCategoryCell {
         switch self {
         case .Name: return true
         case .Icon: return false
+        }
+    }
+    
+    var containsIconImageView: Bool {
+        switch self {
+        case .Name: return false
+        case .Icon: return true
         }
     }
 }
