@@ -30,7 +30,6 @@
 		83E8A829230C35B7007FEE41 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8A828230C35B7007FEE41 /* SettingsController.swift */; };
 		83E8A82B230C3C3F007FEE41 /* DayiatoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E8A82A230C3C3F007FEE41 /* DayiatoCell.swift */; };
 		83EB4C542322AA5E003821DD /* MainDayiato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB4C532322AA5E003821DD /* MainDayiato.swift */; };
-		83EB4C5823240EC2003821DD /* MainDayiatoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB4C5723240EC2003821DD /* MainDayiatoObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +58,6 @@
 		83E8A828230C35B7007FEE41 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		83E8A82A230C3C3F007FEE41 /* DayiatoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayiatoCell.swift; sourceTree = "<group>"; };
 		83EB4C532322AA5E003821DD /* MainDayiato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDayiato.swift; sourceTree = "<group>"; };
-		83EB4C5723240EC2003821DD /* MainDayiatoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDayiatoObject.swift; sourceTree = "<group>"; };
 		E718402A366022512CC1BEFF /* Pods-Dayiato.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dayiato.release.xcconfig"; path = "Target Support Files/Pods-Dayiato/Pods-Dayiato.release.xcconfig"; sourceTree = "<group>"; };
 		FF751E1977CCBF5FC4490E00 /* Pods-Dayiato.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dayiato.debug.xcconfig"; path = "Target Support Files/Pods-Dayiato/Pods-Dayiato.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,7 +115,6 @@
 				836DF0A12315779C00B21FFB /* Category.swift */,
 				836DF0A3231577B000B21FFB /* Dayiato.swift */,
 				83EB4C532322AA5E003821DD /* MainDayiato.swift */,
-				83EB4C5723240EC2003821DD /* MainDayiatoObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,7 +299,6 @@
 				8377A54E231C331A00C08F99 /* SelectCategoryController.swift in Sources */,
 				83E8A827230C14B2007FEE41 /* MenuOption.swift in Sources */,
 				8377A550231C486F00C08F99 /* CategoryCell.swift in Sources */,
-				83EB4C5823240EC2003821DD /* MainDayiatoObject.swift in Sources */,
 				836F39F223073DD7008203D5 /* AppDelegate.swift in Sources */,
 				8375D2B9231D7835005B29E0 /* AddCategoryController.swift in Sources */,
 				8375D2BD232015AD005B29E0 /* AddCategoryOption.swift in Sources */,

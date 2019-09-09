@@ -27,8 +27,9 @@ class HomeController: UIViewController, ReloadDataDelegate {
     var dayiatoImageView: UIImageView = {
         let dayiatoImageView = UIImageView()
         dayiatoImageView.image = UIImage(named: "backgroundView")
-        dayiatoImageView.clipsToBounds = true
         dayiatoImageView.contentMode = .scaleAspectFill
+        dayiatoImageView.clipsToBounds = true
+
         return dayiatoImageView
     }()
     
