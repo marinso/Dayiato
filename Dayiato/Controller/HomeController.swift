@@ -10,13 +10,15 @@ import UIKit
 import RealmSwift
 
 private let reuseIdentifer = "DayiatoCell"
+private let categoryIdentifer = "CategoryCell"
 
 class HomeController: UIViewController, ReloadDataDelegate {
    
     // MARK: - Properties
     var delegate: HomeControllerDelegate?
-    var tableView: UITableView!
-    
+    var tableViewForDayiatos: UITableView!
+    var tableViewForCategories: UITableView!
+    var shouldExpandCategories = true
     var dayiatos:Results<Dayiato>?
     var categories:Results<Category>?
     
@@ -61,6 +63,15 @@ class HomeController: UIViewController, ReloadDataDelegate {
         return dayiatoDateLabel
     }()
     
+    // Properties for tableViewForCategories
+    
+    let iconImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.contentMode = .scaleAspectFit
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
     
     // MARK: - Init
     
@@ -92,6 +103,16 @@ class HomeController: UIViewController, ReloadDataDelegate {
     func configureNavigationBar() {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
+        
+        let titleButton =  UIButton(type: .custom)
+        titleButton.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
+        titleButton.tintColor = .white
+        titleButton.layer.cornerRadius = 10
+        
+        titleButton.setTitle("Dayiatos", for: .normal)
+        titleButton.addTarget(self, action: #selector(animateCategoriesSelector), for: .touchUpInside)
+        navigationItem.titleView = titleButton
+        
         navigationItem.title = "Dayiato"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
@@ -104,7 +125,8 @@ class HomeController: UIViewController, ReloadDataDelegate {
     
     func reloadData() {
         loadData()
-        tableView.reloadData()
+        tableViewForDayiatos.reloadData()
+        tableViewForCategories.reloadData()
         refreshDayiatoView()
     }
     
@@ -112,27 +134,46 @@ class HomeController: UIViewController, ReloadDataDelegate {
     func configureUI() {
         
         // TABLE VIEW
-        tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableViewForDayiatos = UITableView()
+        tableViewForDayiatos.delegate = self
+        tableViewForDayiatos.dataSource = self
         
-        view.addSubview(tableView)
+        view.addSubview(tableViewForDayiatos)
         
-        tableView.register(DayiatoCell.self, forCellReuseIdentifier: reuseIdentifer)
-        tableView.backgroundColor = .lightGray
-        tableView.separatorStyle = .singleLine
-        tableView.rowHeight = 80.0
+        tableViewForDayiatos.register(DayiatoCell.self, forCellReuseIdentifier: reuseIdentifer)
+        tableViewForDayiatos.backgroundColor = .lightGray
+        tableViewForDayiatos.separatorStyle = .singleLine
+        tableViewForDayiatos.rowHeight = 80.0
         
-        view.addSubview(tableView)
+        view.addSubview(tableViewForDayiatos)
 
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.sectionHeaderHeight = view.safeAreaLayoutGuide.layoutFrame.size.height / 2.5
-        tableView.tableFooterView = UIView()
-        tableView.headerView(forSection: 0)
+        tableViewForDayiatos.translatesAutoresizingMaskIntoConstraints = false
+        tableViewForDayiatos.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableViewForDayiatos.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableViewForDayiatos.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableViewForDayiatos.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        tableViewForDayiatos.sectionHeaderHeight = view.safeAreaLayoutGuide.layoutFrame.size.height / 2.5
+        tableViewForDayiatos.tableFooterView = UIView()
+        tableViewForDayiatos.headerView(forSection: 0)
+        
+        // TABLE VIEW FOR CATEGORIES
+        
+        tableViewForCategories = UITableView(frame: CGRect(x: CGFloat(view.frame.size.width / 2 - 100 ), y: CGFloat(80), width: CGFloat(200), height: CGFloat(160)), style: .plain)
+        tableViewForCategories.delegate = self
+        tableViewForCategories.dataSource = self
+        
+        view.addSubview(tableViewForCategories)
+        
+        tableViewForCategories.register(CategoryCell.self, forCellReuseIdentifier: categoryIdentifer)
+        tableViewForCategories.separatorStyle = .singleLine
+        tableViewForCategories.rowHeight = 40.0
+        tableViewForCategories.sectionHeaderHeight = 0
+        tableViewForCategories.layer.cornerRadius = 10
+        tableViewForCategories.isHidden = true
+        let view = UIView()
+        view.backgroundColor = UIColor(hue: 0.6667, saturation: 0.0205, brightness: 0.9569, alpha: 1)
+        tableViewForCategories.tableFooterView = view
+        animateCategoriesSelector()
     }
     
     // MARK: - REALM
@@ -150,6 +191,15 @@ class HomeController: UIViewController, ReloadDataDelegate {
             dayiatoDateLabel.text = dayiato.displayDate()
         }
     }
+    
+    @objc func animateCategoriesSelector() {
+        if shouldExpandCategories {
+                self.tableViewForCategories.isHidden = false
+        } else {
+            self.tableViewForCategories.isHidden = true
+        }
+        shouldExpandCategories = !shouldExpandCategories
+    }
 }
 
 // MARK: - UITableViewDelegate/DataSource
@@ -157,85 +207,112 @@ class HomeController: UIViewController, ReloadDataDelegate {
 extension HomeController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dayiatos?.count ?? 0
+        if tableView == self.tableViewForDayiatos {
+            return dayiatos?.count ?? 0
+        } else {
+            return (categories?.count ?? 1) + 1
+        }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer, for: indexPath) as! DayiatoCell
+        let returnCell = UITableViewCell()
         
-        if let dayiato = dayiatos?[indexPath.row] {
-            cell.backgroundColor = UIColor(hue: 0.6667, saturation: 0.0205, brightness: 0.9569, alpha: 1)
-            cell.descriptionLabel.text = dayiato.title
-            cell.dateLabel.text = dayiato.displayDate()
-            cell.amountOfDays.text = "\(dayiato.counting())"
-            cell.iconImageView.image = UIImage(named: dayiato.parentCategory[0].iconName)
+        if tableView == self.tableViewForDayiatos {
+            let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifer, for: indexPath) as! DayiatoCell
             
-            
-            if !dayiato.future() {
-                cell.amountOfDays.textColor = UIColor(red: 87/255, green: 135/255, blue: 212/255, alpha: 1)
-                cell.marker.textColor = UIColor(red: 87/255, green: 135/255, blue: 212/255, alpha: 1)
+            if let dayiato = dayiatos?[indexPath.row] {
+                cell.backgroundColor = UIColor(hue: 0.6667, saturation: 0.0205, brightness: 0.9569, alpha: 1)
+                cell.descriptionLabel.text = dayiato.title
+                cell.dateLabel.text = dayiato.displayDate()
+                cell.amountOfDays.text = "\(dayiato.counting())"
+                cell.iconImageView.image = UIImage(named: dayiato.parentCategory[0].iconName)
+                
+                if !dayiato.future() {
+                    cell.amountOfDays.textColor = UIColor(red: 87/255, green: 135/255, blue: 212/255, alpha: 1)
+                    cell.marker.textColor = UIColor(red: 87/255, green: 135/255, blue: 212/255, alpha: 1)
+                }
+                return cell
             }
-        } 
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: categoryIdentifer, for: indexPath) as! CategoryCell
+            
+            if indexPath.row == 0 {
+                cell.categoryNameLabel.text = "All categories"
+                cell.categoryNameLabel.textAlignment = .center
+            } else {
+                if let cat = categories?[indexPath.row-1] {
+                    cell.iconImageView.image = UIImage(named: cat.iconName)
+                    cell.categoryNameLabel.text = cat.name
+                }
+            }
+            return cell
+        }
         
-        return cell
+        return returnCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let dayiatos = dayiatos?[indexPath.row] {
-            MainDayiato.sharedInstance.dayiato = dayiatos
-            refreshDayiatoView()
+        if tableView == self.tableViewForDayiatos {
+            if let dayiatos = dayiatos?[indexPath.row] {
+                MainDayiato.sharedInstance.dayiato = dayiatos
+                refreshDayiatoView()
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            if let dayiatoForDeletion = dayiatos?[indexPath.row] {
-                do {
-                    try realm.write {
-                        realm.delete(dayiatoForDeletion)
+        if tableView == self.tableViewForDayiatos {
+            switch editingStyle {
+            case .delete:
+                if let dayiatoForDeletion = dayiatos?[indexPath.row] {
+                    do {
+                        try realm.write {
+                            realm.delete(dayiatoForDeletion)
+                        }
+                    } catch {
+                        print("Error deleting dayiato, \(error)")
                     }
-                } catch {
-                    print("Error deleting dayiato, \(error)")
+                    tableView.reloadData()
                 }
-                tableView.reloadData()
+            default: return
             }
-        default: return
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: view.frame.size.height))
-
-        headerView.addSubview(dayiatoImageView)
-        dayiatoImageView.translatesAutoresizingMaskIntoConstraints = false
-        dayiatoImageView.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
-        dayiatoImageView.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
-        dayiatoImageView.rightAnchor.constraint(equalTo: headerView.rightAnchor).isActive = true
-        dayiatoImageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
-
-        headerView.addSubview(dayiatoTopLabel)
-        dayiatoTopLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayiatoTopLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: -headerView.frame.size.height / 8).isActive = true
-        dayiatoTopLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
-
-        headerView.addSubview(dayiatoNameLabel)
-        dayiatoNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayiatoNameLabel.centerYAnchor.constraint(equalTo: dayiatoTopLabel.centerYAnchor, constant: 50).isActive = true
-        dayiatoNameLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
-
-        headerView.addSubview(dayiatoDaysLabel)
-        dayiatoDaysLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayiatoDaysLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 30).isActive = true
-        dayiatoDaysLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
-
-        headerView.addSubview(dayiatoDateLabel)
-        dayiatoDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayiatoDateLabel.centerYAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -30).isActive = true
-        dayiatoDateLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
-
-        return headerView
+        
+        if tableView == self.tableViewForDayiatos {
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: view.frame.size.height))
+            
+            headerView.addSubview(dayiatoImageView)
+            dayiatoImageView.translatesAutoresizingMaskIntoConstraints = false
+            dayiatoImageView.topAnchor.constraint(equalTo: headerView.topAnchor).isActive = true
+            dayiatoImageView.leftAnchor.constraint(equalTo: headerView.leftAnchor).isActive = true
+            dayiatoImageView.rightAnchor.constraint(equalTo: headerView.rightAnchor).isActive = true
+            dayiatoImageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
+            
+            headerView.addSubview(dayiatoTopLabel)
+            dayiatoTopLabel.translatesAutoresizingMaskIntoConstraints = false
+            dayiatoTopLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: -headerView.frame.size.height / 8).isActive = true
+            dayiatoTopLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
+            
+            headerView.addSubview(dayiatoNameLabel)
+            dayiatoNameLabel.translatesAutoresizingMaskIntoConstraints = false
+            dayiatoNameLabel.centerYAnchor.constraint(equalTo: dayiatoTopLabel.centerYAnchor, constant: 50).isActive = true
+            dayiatoNameLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
+            
+            headerView.addSubview(dayiatoDaysLabel)
+            dayiatoDaysLabel.translatesAutoresizingMaskIntoConstraints = false
+            dayiatoDaysLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 30).isActive = true
+            dayiatoDaysLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
+            
+            headerView.addSubview(dayiatoDateLabel)
+            dayiatoDateLabel.translatesAutoresizingMaskIntoConstraints = false
+            dayiatoDateLabel.centerYAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -30).isActive = true
+            dayiatoDateLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
+            
+            return headerView
+        } else { return UIView() }
     }
 }
