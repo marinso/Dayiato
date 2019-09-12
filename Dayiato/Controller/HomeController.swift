@@ -72,6 +72,16 @@ class HomeController: UIViewController, ReloadDataDelegate {
         return iv
     }()
     
+    let navigationBarTitleButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
+        button.tintColor = .white
+        button.layer.cornerRadius = 10
+        button.titleLabel?.textAlignment = .center
+//        button.backgroundColor = UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
+        button.setTitle("Dayiatos", for: .normal)
+        return button
+    }()
     
     // MARK: - Init
     
@@ -104,16 +114,8 @@ class HomeController: UIViewController, ReloadDataDelegate {
         navigationController?.navigationBar.barTintColor = .darkGray
         navigationController?.navigationBar.barStyle = .black
         
-        let titleButton =  UIButton(type: .custom)
-        titleButton.frame = CGRect(x: 0, y: 0, width: 100, height: 35)
-        titleButton.tintColor = .white
-        titleButton.layer.cornerRadius = 10
-        
-        titleButton.setTitle("Dayiatos", for: .normal)
-        titleButton.addTarget(self, action: #selector(animateCategoriesSelector), for: .touchUpInside)
-        navigationItem.titleView = titleButton
-        
-        navigationItem.title = "Dayiato"
+        navigationBarTitleButton.addTarget(self, action: #selector(animateCategoriesSelector), for: .touchUpInside)
+        navigationItem.titleView = navigationBarTitleButton
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMenuToggle))
         
@@ -173,7 +175,7 @@ class HomeController: UIViewController, ReloadDataDelegate {
         let view = UIView()
         view.backgroundColor = UIColor(hue: 0.6667, saturation: 0.0205, brightness: 0.9569, alpha: 1)
         tableViewForCategories.tableFooterView = view
-        animateCategoriesSelector()
+        tableViewForCategories.isEditing = false
     }
     
     // MARK: - REALM
@@ -193,10 +195,19 @@ class HomeController: UIViewController, ReloadDataDelegate {
     }
     
     @objc func animateCategoriesSelector() {
+        self.tableViewForCategories.isHidden = false
         if shouldExpandCategories {
-                self.tableViewForCategories.isHidden = false
+            UITableView.animate(withDuration: 0.4, animations: {
+                    self.tableViewForCategories.alpha = 1
+            })
         } else {
-            self.tableViewForCategories.isHidden = true
+            UITableView.animate(withDuration: 0.4, animations: {
+                self.tableViewForCategories.alpha = 0
+            }, completion: {
+                (value: Bool) in
+                self.tableViewForCategories.isHidden = true
+            })
+            
         }
         shouldExpandCategories = !shouldExpandCategories
     }
@@ -253,11 +264,24 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if tableView == self.tableViewForDayiatos {
             if let dayiatos = dayiatos?[indexPath.row] {
                 MainDayiato.sharedInstance.dayiato = dayiatos
                 refreshDayiatoView()
             }
+        } else if tableView == self.tableViewForCategories {
+            
+            shouldExpandCategories = false
+            loadData()
+            if indexPath.row > 0 {
+                dayiatos = dayiatos?.filter("ANY parentCategory.name CONTAINS[cd] %@", categories?[indexPath.row-1].name ?? "")
+                navigationBarTitleButton.titleLabel?.text = categories?[indexPath.row-1].name
+            } else {
+                navigationBarTitleButton.titleLabel?.text = "Dayiatos"
+            }
+            tableViewForDayiatos.reloadData()
+            animateCategoriesSelector()
         }
     }
     
@@ -277,8 +301,19 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
                 }
             default: return
             }
+        } else {
+            return
         }
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if tableView == self.tableViewForCategories {
+            return UITableViewCell.EditingStyle.none
+        } else {
+            return UITableViewCell.EditingStyle.delete
+        }
+    }
+
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
